@@ -11,7 +11,9 @@ public class ExchangeRate {
     private final String USER_AGENT = "Mozilla/5.0";
     
     public static void main(String[] args) {
-        
+        // TODO : 11시 이전 데이터 null 처리
+        // 11시 전일 경우 
+        // 환율 기준 명시 할 것  
         SimpleDateFormat dateformat = new SimpleDateFormat("yyyyMMdd");
         String searchDate = dateformat.format(System.currentTimeMillis());
         
@@ -25,11 +27,11 @@ public class ExchangeRate {
             // Sunday
             searchDate = Integer.toString(Integer.parseInt(searchDate) -2);
         }
-        String AUTHKEY = "";
+        System.out.println(searchDate);
+        String AUTHKEY = "y00ypNs2eCuBdPr3f4GDHR6P0NRhdDhj";
+        String fullUrl = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=" + AUTHKEY + "&searchdate=" + searchDate + "&data=AP01";
         ExchangeRate http = new ExchangeRate();
-        String baseUrl = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?";
-        String fullUrl = baseUrl + "authkey=" + AUTHKEY + "&searchdate=" + searchDate + "&data=AP01";
-        
+
         try {
             http.sendGET(fullUrl);
         } catch (Exception e) {
