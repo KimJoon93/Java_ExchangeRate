@@ -28,7 +28,7 @@ public class ExchangeRate {
             searchDate = Integer.toString(Integer.parseInt(searchDate) -2);
         }
         System.out.println(searchDate);
-        String AUTHKEY = "y00ypNs2eCuBdPr3f4GDHR6P0NRhdDhj";
+        String AUTHKEY = "";
         String fullUrl = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=" + AUTHKEY + "&searchdate=" + searchDate + "&data=AP01";
         ExchangeRate http = new ExchangeRate();
 
